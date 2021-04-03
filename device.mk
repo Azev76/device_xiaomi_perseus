@@ -55,6 +55,11 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     init.target.rc
 
+# Display
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
+    ro.surface_flinger.has_wide_color_display=true \
+    ro.surface_flinger.wcg_composition_dataspace=143261696
+
 # Fingerprint
 PRODUCT_PACKAGES += \
     android.hardware.biometrics.fingerprint@2.1-service.xiaomi_sdm845
@@ -84,3 +89,15 @@ PRODUCT_COPY_FILES += \
 # Slider settings
 PRODUCT_PACKAGES += \
     DeviceSettings
+
+#GApps
+$(call inherit-prodcuts-if-exists, vendor/gapps/pixel-gapps.mk)
+
+GAPPS_FORCE_MATCHING_DPI := true \
+WITH_DEXPREOPT := true \
+BUILD_GAPPS_PREBUILT_SHARED_LIBRARY \
+GAPPS_EXCLUDED_PACKAGES := GoogleCamera \
+GAPPS_EXCLUDED_PACKAGES := Photos \
+GAPPS_EXCLUDED_PACKAGES := GoogleContacts \
+GAPPS_EXCLUDED_PACKAGES := GoogleDialer
+
