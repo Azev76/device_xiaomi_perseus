@@ -7,12 +7,15 @@
 $(call inherit-product, device/xiaomi/perseus/device.mk)
 
 # Inherit some common Arrow stuff.
-$(call inherit-product, vendor/potato/config/common.mk)
+$(call inherit-product, vendor/descendant/config/common_full_phone.mk)
 
+# Inherit some common Descendant stuff
 TARGET_BOOT_ANIMATION_RES := 1080
+TARGET_FACE_UNLOCK_SUPPORT:= YES
+TARGET_SUPPORTS_BLUR := true
 
 # Device identifier. This must come after all inclusions.
-PRODUCT_NAME := potato_perseus
+PRODUCT_NAME := descendant_perseus
 PRODUCT_DEVICE := perseus
 PRODUCT_BRAND := Xiaomi
 PRODUCT_MODEL := Mi MIX 3
